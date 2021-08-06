@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
-import "OpenZeppelin/openzeppelin-contracts@2.5.0/contracts/drafts/Counters.sol"
-import "OpenZeppelin/openzeppelin-contracts@2.5.0/contracts/token/ERC721/ERC721Full.sol"
+import "OpenZeppelin/openzeppelin-contracts@2.5.0/contracts/drafts/Counters.sol";
+import "OpenZeppelin/openzeppelin-contracts@2.5.0/contracts/token/ERC721/ERC721Full.sol";
 
 /* 
 PACMan DAO is bringing rapid on-chain activism.
