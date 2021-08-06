@@ -15,20 +15,19 @@ contract MockCongress is ERC721Full {
         Counters.Counter moc_ids;
 
         struct MoC {
-		address owner;
                 string username;
 		string seat;
         }
 
         mapping(uint => MoC) public directory;
 
-        address private owner;
+        address private contract_owner;
 	address public votes;
 
 /* Constructor */
         constructor(address votes_addr) ERC721Full("PacMan MOC", "MOC") public {
 		votes = votes_addr;
-                owner = msg.sender;
+                contract_owner = msg.sender;
         }
 
 
@@ -55,38 +54,33 @@ contract MockCongress is ERC721Full {
 		return moc_ids.current();
 	}
 /* Owner functions */
-	function newOwner(address new_owner_addr) onlyOwner public {
- 		owner = new_owner_addr;
-	}
-
-	// Presumably do an auction logic instead
-	function assignTokenOwner(uint token_id, address new_owner_addr) onlyOwner public {
-		directory[token_id].owner = new_owner_addr;
+	function newOwner(address new_owner_addr) onlyContractOwner public {
+ 		contract_owner = new_owner_addr;
 	}
 
 	function mintMOC(
 		string memory username, 
 		string memory seat, 
 		string memory uri
-	) public onlyOwner returns(uint) {
+	) public onlyContractOwner returns(uint) {
 	
 	       moc_ids.increment();
 	       uint moc_id = moc_ids.current();
 
-	       _mint(owner, moc_id);
+	       _mint(contract_owner, moc_id);
 	       _setTokenURI(moc_id, uri);
-	       directory[moc_id] = MoC(owner, username, seat);
+	       directory[moc_id] = MoC(username, seat);
 	       return moc_id;
 	}
 
 
 /* Modifiers */
-	modifier onlyOwner() {
-	       require(msg.sender == owner, "No Insurrection");
+	modifier onlyContractOwner() {
+	       require(msg.sender == contract_owner, "No Insurrection");
 	       _;
 	} 
 	modifier onlyTokenOwner(uint token_id) {
-		require(msg.sender == directory[token_id].owner, "Wrong Puppeteer");
+		require(msg.sender == ownerOf(token_id), "Wrong Puppeteer");
 		_;
 	}
 }

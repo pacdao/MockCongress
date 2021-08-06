@@ -2,14 +2,14 @@ import brownie
 
 
 def test_owner_can_transfer_token(congress, pelosi, mcconnell, minted_schumer):
-    congress.assignTokenOwner(minted_schumer, mcconnell, {"from": pelosi})
+    congress.transferFrom(pelosi, mcconnell, minted_schumer, {"from": pelosi})
 
-    assert congress.directory(minted_schumer)[0] == mcconnell
+    assert congress.ownerOf(minted_schumer) == mcconnell
 
 
-def test_nonowner_cannot_transfer_token(congress, minted_schumer, mcconnell):
-    with brownie.reverts("No Insurrection"):
-        congress.assignTokenOwner(minted_schumer, mcconnell, {"from": mcconnell})
+def test_nonowner_cannot_transfer_token(congress, minted_schumer, mcconnell, pelosi):
+    with brownie.reverts():
+        congress.transferFrom(pelosi, mcconnell, minted_schumer, {"from": mcconnell})
 
 
 def test_nonowner_cannot_mint(congress, mcconnell):
