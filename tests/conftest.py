@@ -1,5 +1,6 @@
-from brownie import *
 import pytest
+from brownie import *
+
 
 @pytest.fixture(scope="function", autouse=True)
 def isolate(fn_isolation):
@@ -10,24 +11,28 @@ def isolate(fn_isolation):
 
 @pytest.fixture(scope="module")
 def congress():
-    return MockCongress.deploy(accounts[0], {'from': accounts[0]})
+    return MockCongress.deploy(accounts[0], {"from": accounts[0]})
+
 
 @pytest.fixture(scope="module")
 def pelosi():
     return accounts[0]
 
+
 @pytest.fixture(scope="module")
 def mcconnell():
     return accounts[1]
 
+
 @pytest.fixture(scope="module")
 def minted_schumer(congress, pelosi):
-    ret = congress.mintMOC('schumer', 'NYSEN1', '{ipfs_metadata_schumer}', {'from': pelosi})
+    ret = congress.mintMOC(
+        "schumer", "NYSEN1", "{ipfs_metadata_schumer}", {"from": pelosi}
+    )
     return ret.return_value
+
 
 @pytest.fixture(scope="module")
 def minted_aoc(congress, pelosi):
-    ret = congress.mintMOC('aoc', 'NY14', '{ipfs_metadata_aoc}', {'from': pelosi})
+    ret = congress.mintMOC("aoc", "NY14", "{ipfs_metadata_aoc}", {"from": pelosi})
     return ret.return_value
-
-
