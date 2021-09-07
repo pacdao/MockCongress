@@ -1,0 +1,11 @@
+.box {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .box>* {
+        flex: 0 0 33.3333%;
+        margin:20px;
+    }

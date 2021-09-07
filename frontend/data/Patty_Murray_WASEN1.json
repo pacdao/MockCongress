@@ -1,0 +1,20 @@
+{
+ 	"Name": "Patty Murray",
+  "State" : "Washington",
+  "Type" : "Senator",
+	"District" : "1",
+  "Phone" : "(202) 224-2621",
+	"Tenure" : "January 3, 2019 - February 3, 2021",
+	"Offices" : "Chair of the Senate Health, Education, Labor and Pensions Committee (Since 2021)",
+	"DOB": "Oct 11, 1950 (age 70)",
+  "Address" : "915 2nd Ave Ste 3206, Seattle, WA 98174",
+  "DNA" : "00000000000000000000",
+	"Picture": "https://freebeacon.com/wp-content/uploads/2018/01/Patty-Murray.jpg",
+  "Website" : "https://www.murray.senate.gov/public/",
+  "facebook" : "https://www.facebook.com/pattymurray/",
+  "twitter" : "https://twitter.com/pattymurray",
+  "flickr" : "https://www.flickr.com/photos/mariacantwell",
+  "youtube" : "https://www.youtube.com/c/pattymurray",
+  "instagram" : "https://www.instagram.com/senpattymurray/"
+
+}
