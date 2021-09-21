@@ -1,0 +1,25 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "@pinata/sdk": "^1.1.23",
+    "async": "^3.2.1",
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "ethereumjs-tx": "^2.1.2",
+    "node": {
+      "integrity": "sha512-Oz2AIg5iUGjllkWLUk0OeF8fuIqoSVKwBv1RPzq1crlEPF/eg0u+sgBOrkfkSbhM/7JDUb6xatN8jVaUpSGVnA==",
+      "requires": {
+        "node-bin-setup": "^1.0.0"
+      },
+      "resolved": "https://registry.npmjs.org/node/-/node-16.9.1.tgz",
+      "version": "16.9.1"
+    },
+    "node-bin-setup": {
+      "integrity": "sha512-uPIxXNis1CRbv1DwqAxkgBk5NFV3s7cMN/Gf556jSw6jBvV7ca4F9lRL/8cALcZecRibeqU+5dFYqFFmzv5a0Q==",
+      "resolved": "https://registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.0.6.tgz",
+      "version": "1.0.6"
+    },
+    "web3": "^1.5.2"
+  }
+}
